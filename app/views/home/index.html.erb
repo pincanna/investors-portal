@@ -16,12 +16,17 @@
       <div class="col-md-4">
         <div class="card text-white bg-secondary">
           <h5 class="card-header">Your Security Roles</h4>
+
             <div class="card-body">
+              <% if current_user.roles.any? %>
               <ul>
                 <% current_user.roles.each do |role| %>
                 <li><%= role.name %></li>
                 <% end %>
               </ul>
+              <% else %>
+              <p>You have not been assigned to any security roles.</p>
+              <% end %>
             </div>
         </div>
 
