@@ -1,10 +1,10 @@
 class DocumentPolicy < ApplicationPolicy
   def index?
-    user.has_role?(:document_read_all)
+    user.has_role?(:document_reader)
   end
 
   def show?
-    user.has_role?(:document_read_all)
+    user.has_role?(:document_reader)
   end
 
   def update?
@@ -13,6 +13,10 @@ class DocumentPolicy < ApplicationPolicy
 
   def create?
     user.has_role?(:document_creator)
+  end
+
+  def destroy?
+    user.has_role?(:document_destroyer)
   end
 
   class Scope < Scope
