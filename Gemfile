@@ -78,3 +78,5 @@ gem "pry-rails", "~> 0.3.9"
 gem "azure-storage-blob", "~> 1.1"
 gem "aws-sdk-s3", require: false
 gem "cloudinary", "~> 1.12"
+
+gem "administrate-field-active_storage", "~> 0.2.0"
