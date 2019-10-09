@@ -19,7 +19,7 @@ class DocumentDashboard < Administrate::BaseDashboard
     description: Field::Text,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    download: Field::ActiveStorage
+    download: FileField
   }.freeze
 
   # COLLECTION_ATTRIBUTES
