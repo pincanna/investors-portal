@@ -12,4 +12,12 @@ class User < ApplicationRecord
   def self.invite_key_fields
     [:email]
   end
+
+  def invitation_limit
+    if self.has_role?(:user_inviter)
+      return nil
+    else
+      return 0
+    end
+  end
 end
