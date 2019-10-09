@@ -1,10 +1,51 @@
-<h1>Welcome to the Pincanna Investor's Portal</h1>
-<% if current_user %>
-<p class="lead">
-  Hello, <%= current_user.name %>!
-</p>
-<% else %>
-<p class="lead">
-  Please sign in to access this secure resource.
-</p>
-<% end %>
+<div class="text-center">
+
+  <hr>
+</div>
+<div class="jumbotron text-center">
+  <%= image_tag 'logo-big.png', width: '450px' %>
+  <hr class="my-4">
+  <% if current_user %>
+  <div class="text-center">
+    <h2>
+      Welcome, <%= current_user.name %>!
+
+    </h2>
+    <hr class="my-4">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card text-white bg-secondary">
+          <h5 class="card-header">Your Security Roles</h4>
+            <div class="card-body">
+              <ul>
+                <% current_user.roles.each do |role| %>
+                <li><%= role.name %></li>
+                <% end %>
+              </ul>
+            </div>
+        </div>
+
+      </div>
+      <div class="col-md-8">
+        <div class="card">
+          <h5 class="card-header text-white bg-info">Main Menu</h5>
+          <div class="card-body">
+            <ul class="list-group">
+              <li class="list-group-item">Website under construction</li>
+              <% if current_user.has_role?(:admin_portal) %>
+              <%= link_to 'Admin Panel', admin_root_path, class: 'list-group-item list-group-item-action' %>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% else %>
+  <p class="lead">
+    Please sign in to access this secure resource.
+    <br>
+    <%= link_to 'Sign in', new_user_session_path, class: 'btn btn-success btn-lg' %>
+  </p>
+  <% end %>
+</div>
