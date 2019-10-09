@@ -74,3 +74,5 @@ gem "devise_invitable", "~> 2.0"
 gem "postmark-rails", "~> 0.19.0"
 
 gem "pry-rails", "~> 0.3.9"
+
+gem "azure-storage-blob", "~> 1.1"
