@@ -8,4 +8,8 @@ class User < ApplicationRecord
 
   has_many :notifications, foreign_key: :recipient_id
   has_many :services
+
+  def self.invite_key_fields
+    [:email]
+  end
 end
