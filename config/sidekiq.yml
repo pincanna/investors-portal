@@ -1,0 +1,12 @@
+---
+:concurrency: 5
+staging:
+  :concurrency: 10
+production:
+  :concurrency: 20
+:queues:
+  - active_storage_analysis
+  - default
+  - low
+  - mailers
+  - active_storage_purge
