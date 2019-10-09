@@ -1,2 +1,2 @@
 web: rails server
-worker: sidekiq
+worker: sidekiq -e production -c 5
