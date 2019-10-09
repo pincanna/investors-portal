@@ -72,3 +72,5 @@ gem 'whenever', require: false
 gem "devise_invitable", "~> 2.0"
 
 gem "postmark-rails", "~> 0.19.0"
+
+gem "pry-rails", "~> 0.3.9"
