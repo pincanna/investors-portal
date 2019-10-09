@@ -1,4 +1,10 @@
 <h1>Welcome to the Pincanna Investor's Portal</h1>
+<% if current_user %>
+<p class="lead">
+  Hello, <%= current_user.name %>!
+</p>
+<% else %>
 <p class="lead">
   Please sign in to access this secure resource.
 </p>
+<% end %>
