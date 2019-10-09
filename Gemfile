@@ -70,3 +70,5 @@ gem 'sidekiq', '~> 5.2', '>= 5.2.5'
 gem 'sitemap_generator', '~> 6.0', '>= 6.0.1'
 gem 'whenever', require: false
 gem "devise_invitable", "~> 2.0"
+
+gem "postmark-rails", "~> 0.19.0"
