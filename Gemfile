@@ -80,3 +80,5 @@ gem "aws-sdk-s3", require: false
 gem "cloudinary", "~> 1.12"
 
 gem "administrate-field-active_storage", "~> 0.2.0"
+
+gem "pundit", "~> 2.1"

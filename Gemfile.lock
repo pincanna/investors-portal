@@ -275,6 +275,8 @@ GEM
       pry (>= 0.10.4)
     public_suffix (4.0.1)
     puma (3.12.1)
+    pundit (2.1.0)
+      activesupport (>= 3.0.0)
     rack (2.0.7)
     rack-protection (2.0.7)
       rack
@@ -431,6 +433,7 @@ DEPENDENCIES
   postmark-rails (~> 0.19.0)
   pry-rails (~> 0.3.9)
   puma (~> 3.11)
+  pundit (~> 2.1)
   rails (~> 6.0.0)
   sass-rails (~> 5)
   selenium-webdriver
