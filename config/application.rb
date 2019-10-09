@@ -12,6 +12,7 @@ module InvestorPortal
     config.to_prepare do
       Administrate::ApplicationController.helper InvestorPortal::Application.helpers
     end
+    config.time_zone = 'Eastern Time (US & Canada)'
     config.active_job.queue_adapter = :sidekiq
     config.application_name = Rails.application.class.module_parent_name
     # Initialize configuration defaults for originally generated Rails version.
