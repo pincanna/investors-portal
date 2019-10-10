@@ -17,6 +17,10 @@
 }
 
 // Masquerade alert shouldn't have a bottom margin
-body > .alert {
+body>.alert {
   margin-bottom: 0;
+}
+
+.actions {
+  padding-bottom: 5px;
 }

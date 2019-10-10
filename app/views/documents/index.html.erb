@@ -3,6 +3,12 @@
   <strong>These documents require privileged access.</strong> Please do not share these documents or your login
   credentials with others.
 </div>
+<% if current_user.has_role?(:document_creator) %>
+<div class="actions">
+  <%= link_to 'Add New Document', new_document_path, class: 'btn btn-sm btn-success' %>
+</div>
+
+<% end %>
 <table class="table table-condensed table-bordered table-striped table-hover">
   <thead>
     <tr>
