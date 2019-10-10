@@ -1,0 +1,25 @@
+<h1>Secure Documents</h1>
+<div class="alert alert-warning">
+  <strong>These documents require privileged access.</strong> Please do not share these documents or your login
+  credentials with others.
+</div>
+<table class="table table-condensed table-bordered table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Date published</th>
+      <th>Document Title</th>
+      <th>Description</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @documents.each do |document| %>
+    <tr>
+      <td><%= document.created_at %></td>
+      <td><%= document.title %></td>
+      <td><%= truncate document.description, length: 25 %></td>
+      <td><%= link_to 'View', document %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
