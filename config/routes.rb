@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   end
 
   resources :documents
+  namespace :users do
+    resources :verification_codes, only: [:index]
+  end
   resources :notifications, only: [:index]
   resources :announcements, only: [:index]
   devise_for :users, controllers: {

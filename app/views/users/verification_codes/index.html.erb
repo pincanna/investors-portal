@@ -1,0 +1,19 @@
+<div class="card">
+  <h2 class="card-header">Accounts Requiring Verification</h2>
+  <table class="table table-bordered table-striped table-sm">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Verification Code</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.paranoid_verification_code %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

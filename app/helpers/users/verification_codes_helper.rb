@@ -1,0 +1,2 @@
+module Users::VerificationCodesHelper
+end
