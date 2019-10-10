@@ -4,7 +4,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :invitable, :password_archivable, :session_limitable, :paranoid_verification, :masqueradable, :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :omniauthable
-  after_invitation_accepted :generate_paranoid_code
+  after_create :generate_paranoid_code
   has_person_name
 
   has_many :notifications, foreign_key: :recipient_id
