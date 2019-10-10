@@ -86,3 +86,5 @@ gem "pundit", "~> 2.1"
 gem "rolify", "~> 5.2"
 
 gem "devise-security", "~> 0.14.3"
+
+gem "draper", "~> 3.1"
