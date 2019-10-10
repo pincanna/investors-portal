@@ -1,6 +1,6 @@
 class DocumentsController < ApplicationController
   def index
-    @documents = Document.all
+    @documents = DocumentDecorator.decorate_collection(policy_scope(Document))
   end
 
   def show
@@ -9,6 +9,6 @@ class DocumentsController < ApplicationController
   private
 
   def set_document
-    @document = Document.find(params[:id])
+    @document = DocumentDecorator.decorate(policy_scope(Document).find(params[:id]))
   end
 end

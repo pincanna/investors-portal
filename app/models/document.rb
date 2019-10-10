@@ -1,4 +1,5 @@
 class Document < ApplicationRecord
+  resourcify
   belongs_to :attachable, polymorphic: true, optional: true
   has_secure_token
   has_one_attached :download

@@ -21,7 +21,13 @@ class DocumentPolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
-      scope.all
+      if user.has_role?(:document_read_all)
+        scope.all
+      elsif user.has_role?(:document_reader)
+        scope.with_role(:viewer, user)
+      else
+        [Document.new]
+      end
     end
   end
 end
