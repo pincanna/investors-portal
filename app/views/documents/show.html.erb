@@ -5,5 +5,15 @@
       <dt>Filename</dt>
       <dd><%= @document.download.attached? ? @document.download.filename : 'No file attached' %></dd>
     </dl>
+    <% if current_user.has_role?(:document_creator) %>
+    <div class="access-list">
+      <h4>Users with access:</h4>
+      <ul>
+        <% User.with_role(:viewer, Document.find(@document.id)).each do |u| %>
+        <li><%= u.email %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
   </div>
 </div>
