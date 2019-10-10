@@ -1,0 +1,9 @@
+<div class="card">
+  <h4 class="card-header">Secure Document</h4>
+  <div class="card-body">
+    <dl>
+      <dt>Filename</dt>
+      <dd><%= @document.download.attached? ? @document.download.filename : 'No file attached' %></dd>
+    </dl>
+  </div>
+</div>
