@@ -3,7 +3,11 @@
   <div class="card-body">
     <dl>
       <dt>Filename</dt>
-      <dd><%= @document.download.attached? ? @document.download.filename : 'No file attached' %></dd>
+      <dd>
+        <%= @document.download.attached? ? link_to(@document.download.filename, url_for(@document.download), target: '_blank') : 'No file attached' %>
+        <br>
+        <div class="small">Click to Download</div>
+      </dd>
     </dl>
     <% if current_user.has_role?(:document_creator) %>
     <div class="access-list">
