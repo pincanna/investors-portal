@@ -84,3 +84,5 @@ gem "administrate-field-active_storage", "~> 0.2.0"
 gem "pundit", "~> 2.1"
 
 gem "rolify", "~> 5.2"
+
+gem "devise-security", "~> 0.14.3"
