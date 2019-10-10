@@ -36,10 +36,11 @@
           <h5 class="card-header text-white bg-info">Main Menu</h5>
           <div class="card-body">
             <ul class="list-group">
-              <li class="list-group-item">Website under construction</li>
+              <li class="list-group-item disabled bg-secondary text-white">Website under construction</li>
               <% if current_user.has_role?(:admin_portal) %>
               <%= link_to 'Admin Panel', admin_root_path, class: 'list-group-item list-group-item-action' %>
               <% end %>
+              <%= link_to 'Secure Documents', documents_path, class: 'list-group-item list-group-item-action' if current_user.has_role?(:document_reader) %>
               <%= link_to 'Invite a User', new_user_invitation_path, class: 'list-group-item list-group-item-action' if current_user.has_role?(:user_inviter) %>
             </ul>
           </div>
