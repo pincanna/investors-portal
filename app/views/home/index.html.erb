@@ -13,25 +13,8 @@
     </h2>
     <hr class="my-4">
     <div class="row">
-      <div class="col-md-4">
-        <div class="card text-white bg-secondary">
-          <h5 class="card-header">Your Security Roles</h4>
 
-            <div class="card-body">
-              <% if current_user.roles.any? %>
-              <ul>
-                <% current_user.roles.each do |role| %>
-                <li><%= role.name %></li>
-                <% end %>
-              </ul>
-              <% else %>
-              <p>You have not been assigned to any security roles.</p>
-              <% end %>
-            </div>
-        </div>
-
-      </div>
-      <div class="col-md-8">
+      <div class="col-md-12">
         <div class="card">
           <h5 class="card-header text-white bg-info">Main Menu</h5>
           <div class="card-body">
@@ -47,6 +30,24 @@
           </div>
         </div>
       </div>
+      <!--<div class="col-md-3">
+        <div class="card text-white bg-secondary">
+          <h5 class="card-header">Your Security Roles</h4>
+
+            <div class="card-body">
+              <% if current_user.roles.any? %>
+              <ul>
+                <% current_user.roles.where(resource_id: nil).each do |role| %>
+                <li><%= role.name %></li>
+                <% end %>
+              </ul>
+              <% else %>
+              <p>You have not been assigned to any security roles.</p>
+              <% end %>
+            </div>
+        </div>
+
+      </div>-->
     </div>
   </div>
   <% else %>
