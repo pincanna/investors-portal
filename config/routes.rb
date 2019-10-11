@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :documents
   namespace :users do
     resources :verification_codes, only: [:index]
+    resources :login_activities
   end
   resources :notifications, only: [:index]
   resources :announcements, only: [:index]
