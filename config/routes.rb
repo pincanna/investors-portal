@@ -21,6 +21,9 @@ Rails.application.routes.draw do
     resources :verification_codes, only: [:index]
     resources :login_activities
   end
+  namespace :messages do
+    get 'inbox', to: 'inbox#index'
+  end
   resources :notifications, only: [:index]
   resources :announcements, only: [:index]
   devise_for :users, controllers: {
