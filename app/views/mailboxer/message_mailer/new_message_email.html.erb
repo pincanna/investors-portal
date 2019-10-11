@@ -11,7 +11,10 @@
     You have received a new secure message on the Pincanna Investors Portal.
   </p>
   <p>
-    Visit <%= link_to root_url, root_url %> and go to your inbox for more info.
+    Visit
+    <%= link_to short_url(messages_conversation_url(@message.conversation)), short_url(messages_conversation_url(@message.conversation)) %>
+    and go to
+    your inbox for more info.
   </p>
 </body>
 
