@@ -2,18 +2,24 @@
 <h1>Sentbox</h1>
 <hr>
 <h4 class="text-muted">Conversations</h4>
-<table class="table">
-  <thead>
+<table class="table table-bordered table-striped table-hover table-sm">
+  <thead class="thead-dark">
     <tr>
-      <th>Date</th>
+      <th>Status</th>
       <th>Subject</th>
+      <th>Date</th>
     </tr>
   </thead>
   <tbody>
     <% @conversations.each do |conversation| %>
     <tr>
-      <td><%= conversation.created_at %></td>
+      <td class="text-center">
+        <div class="badge badge-primary">
+          <%= conversation.is_read?(current_user) ? 'seen' : 'NEW' %>
+        </div>
+      </td>
       <td><%= link_to conversation.subject, messages_conversation_path(conversation) %></td>
+      <td><%= conversation.created_at.strftime("%b %-d, %Y %-l:%M%P") %></td>
     </tr>
     <% end %>
   </tbody>
