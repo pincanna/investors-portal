@@ -1,0 +1,18 @@
+<h1><%= @conversation.subject %></h1>
+<% @receipts.each do |receipt| %>
+<div class="card">
+  <h5 class="card-header"><%= receipt.created_at %></h5>
+  <div class="card-body">
+    <dl>
+      <dt>From</dt>
+      <dd><%= receipt.message.sender.name %></dd>
+
+      <dt>To</dt>
+      <dd><%= receipt.receiver.name %></dd>
+
+      <dt>Message</dt>
+      <dd><%= receipt.message.body %></dd>
+    </dl>
+  </div>
+</div>
+<% end %>

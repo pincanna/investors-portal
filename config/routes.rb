@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   end
   namespace :messages do
     get 'inbox', to: 'inbox#index'
+    resources :conversations
   end
   resources :notifications, only: [:index]
   resources :announcements, only: [:index]
