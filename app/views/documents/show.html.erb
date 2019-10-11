@@ -8,6 +8,8 @@
         <br>
         <div class="small">Click to Download</div>
       </dd>
+      <dt>Description</dt>
+      <dd><%= @document.description %></dd>
     </dl>
     <% if current_user.has_role?(:document_creator) %>
     <div class="access-list">
