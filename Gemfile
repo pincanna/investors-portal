@@ -90,3 +90,5 @@ gem "devise-security", "~> 0.14.3"
 gem "draper", "~> 3.1"
 
 gem "authtrail", "~> 0.2.0"
+
+gem "mailboxer", "~> 0.15.1"
