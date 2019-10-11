@@ -11,7 +11,7 @@
   <h1>You have a new reply: <%= @subject %></h1>
   <p>
     Visit
-    <%= link_to root_url, root_url %>
+    <%= link_to short_url(messages_conversation_url(@message.conversation)), short_url(messages_conversation_url(@message.conversation)) %>
     and go to your inbox for more info.
   </p>
 </body>
