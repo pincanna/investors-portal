@@ -1,0 +1,2 @@
+module Messages::SentboxHelper
+end

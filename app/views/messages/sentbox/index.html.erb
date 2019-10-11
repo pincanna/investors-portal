@@ -1,0 +1,19 @@
+<h1>Sentbox</h1>
+<hr>
+<h4 class="text-muted">Conversations</h4>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Subject</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @conversations.each do |conversation| %>
+    <tr>
+      <td><%= conversation.created_at %></td>
+      <td><%= link_to conversation.subject, messages_conversation_path(conversation) %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
