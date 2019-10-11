@@ -4,8 +4,6 @@
 <head>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 </head>
-<% url = Shortener::ShortenedUrl.generate() %>
-<% link = "https://investors.pincanna.com/go/" + url.unique_key %>
 
 <body>
   <h1>You have a new message: <%= @subject %></h1>
@@ -14,7 +12,7 @@
   </p>
   <p>
     Visit
-    <%= link_to link, link %>
+    <%= link_to root_url, root_url %>
     and go to
     your inbox for more info.
   </p>
