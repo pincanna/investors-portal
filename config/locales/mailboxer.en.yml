@@ -1,0 +1,7 @@
+en:
+  mailboxer:
+    message_mailer:
+      subject_new: "New Secure Message: %{subject}"
+      subject_reply: "New Reply: %{subject}"
+    notification_mailer:
+      subject: "Secure Notification: %{subject}"
