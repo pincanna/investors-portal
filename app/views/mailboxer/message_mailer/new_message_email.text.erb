@@ -2,5 +2,6 @@ You have a new message: <%= @subject %>
 ===============================================
 
 You have received a new secure message on the Pincanna Investors Portal.
-
-Visit <%= short_url(messages_conversation_url(@message.conversation)) %> and go to your inbox for more info.
+<% short_url = Shortener::ShortenedUrl.generate(messages_conversation_url(@message.conversation)) %>
+<% link = "https://investors.pincanna.com/go/" + short_url.unique_key %>
+Visit <%= link %> and go to your inbox for more info.

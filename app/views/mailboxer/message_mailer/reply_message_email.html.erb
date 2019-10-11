@@ -4,12 +4,14 @@
 <head>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 </head>
+<% short_url = Shortener::ShortenedUrl.generate(messages_conversation_url(@message.conversation)) %>
+<% link = "https://investors.pincanna.com/go/" + short_url.unique_key %>
 
 <body>
   <h1>You have a new reply: <%= @subject %></h1>
   <p>
     Visit
-    <%= link_to short_url(messages_conversation_url(@message.conversation)), short_url(messages_conversation_url(@message.conversation)) %>
+    <%= link_to link, link %>
     and go to your inbox for more info.
   </p>
 </body>
