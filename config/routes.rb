@@ -26,7 +26,9 @@ Rails.application.routes.draw do
   namespace :messages do
     get 'inbox', to: 'inbox#index'
     get 'sent', to: 'sentbox#index'
-    resources :conversations
+    resources :conversations do
+      post 'reply', on: :member
+    end
   end
   resources :notifications, only: [:index]
   resources :announcements, only: [:index]
