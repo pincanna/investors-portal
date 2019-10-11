@@ -92,3 +92,5 @@ gem "draper", "~> 3.1"
 gem "authtrail", "~> 0.2.0"
 
 gem "mailboxer", "~> 0.15.1"
+
+gem "active_link_to", "~> 1.0"

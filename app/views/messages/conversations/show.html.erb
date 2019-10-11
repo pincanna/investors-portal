@@ -1,3 +1,4 @@
+<%= render 'messages/shared/navigation' %>
 <h1>Conversation: <span class="text-muted">
     <%= @conversation.subject %>
   </span>
@@ -5,6 +6,17 @@
 <div class="row">
   <div class="col-md-4">
     <div class="card">
+      <h5 class="card-header">Participants</h5>
+      <div class="card-body">
+        <ul>
+          <% @conversation.recipients.each do |recipient| %>
+          <li><%= recipient.name %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="card">
+      <h5 class="card-header">Reply</h5>
       <div class="card-body">
         <%= form_with scope: :reply, local: true, url: reply_messages_conversation_path(@conversation) do |f| %>
         <div class="form-group">
@@ -18,14 +30,11 @@
   <div class="col-md-8">
     <% @receipts.each do |receipt| %>
     <div class="card">
-      <h5 class="card-header"><%= receipt.created_at %></h5>
+      <h5 class="card-header"><%= receipt.created_at.strftime("%b %-d, %Y %-l:%M%P") %></h5>
       <div class="card-body">
         <dl>
           <dt>From</dt>
           <dd><%= receipt.message.sender.name %></dd>
-
-          <dt>To</dt>
-          <dd><%= receipt.receiver.name %></dd>
 
           <dt>Message</dt>
           <dd><%= receipt.message.body %></dd>
