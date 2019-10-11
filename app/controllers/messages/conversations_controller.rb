@@ -7,6 +7,7 @@ class Messages::ConversationsController < ApplicationController
     @conversation = Mailboxer::Conversation.find(params[:id])
     authorize @conversation
     @receipts = @conversation.receipts_for current_user
+    @conversation.mark_as_read(current_user)
   end
 
   def new; end
