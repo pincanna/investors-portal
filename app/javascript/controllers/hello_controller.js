@@ -10,12 +10,13 @@
 import {
   Controller
 } from "stimulus"
-
+import {
+  ulid
+} from 'ulid'
 export default class extends Controller {
   static targets = ["output"]
 
   connect() {
-    // this.outputTarget.textContent = 'Hello, Stimulus!'
-    console.log("Stimulus.js is connected!")
+    this.outputTarget.textContent = ulid()
   }
 }
