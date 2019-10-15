@@ -26,3 +26,15 @@
 
   </dd>
 </dl>
+
+<div class="add-role">
+  <h4>Add a Role</h4>
+  <hr>
+  <%= form_with scope: :role, local: true, url: users_profile_roles_path(@user), class: 'form-inline' do |f| %>
+  <div class="form-group">
+    <%= f.label :name, "Role" %>
+    <%= f.collection_select :name, Role.all.where(resource: nil), :name, :name %>
+  </div>
+  <%= f.submit "Add Role", class: 'btn btn-outline-primary' %>
+  <% end %>
+</div>
