@@ -98,6 +98,8 @@ GEM
     administrate-field-active_storage (0.2.0)
       administrate (>= 0.2.0.rc1)
       rails (>= 6.0)
+    attr_encrypted (3.1.0)
+      encryptor (~> 3.0.0)
     authtrail (0.2.0)
       activerecord (>= 5)
       geocoder
@@ -192,6 +194,7 @@ GEM
       activemodel-serializers-xml (>= 1.0)
       activesupport (>= 5.0)
       request_store (>= 1.0)
+    encryptor (3.0.0)
     erubi (1.9.0)
     execjs (2.7.0)
     faraday (0.17.0)
@@ -451,6 +454,7 @@ DEPENDENCIES
   active_link_to (~> 1.0)
   administrate!
   administrate-field-active_storage (~> 0.2.0)
+  attr_encrypted (~> 3.1)
   authtrail (~> 0.2.0)
   aws-sdk-s3
   azure-storage-blob (~> 1.1)
