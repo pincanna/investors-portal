@@ -28,7 +28,7 @@ class EncryptedMemosController < ApplicationController
   # POST /encrypted_memos
   # POST /encrypted_memos.json
   def create
-    @encrypted_memo = EncryptedMemo.new(encrypted_memo_params)
+    @encrypted_memo = current_user.encrypted_memos.new(encrypted_memo_params)
     authorize @encrypted_memo
 
     respond_to do |format|

@@ -15,4 +15,8 @@
   <dt>Body:</dt>
   <dd><%= @encrypted_memo.body %></dd>
 
+  <% if @encrypted_memo.user.present? %>
+  <div class="text-muted">Posted by <%= @encrypted_memo.user.name %></div>
+  <% end %>
+
 </dl>

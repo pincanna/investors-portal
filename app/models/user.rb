@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :notifications, foreign_key: :recipient_id
   has_many :login_activities, as: :user
   has_many :services
+  has_many :encrypted_memos
 
   def self.invite_key_fields
     [:email]
