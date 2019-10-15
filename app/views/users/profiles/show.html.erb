@@ -19,11 +19,21 @@
     <% end %>
   </dd>
 
+  <dt>Invitation Status</dt>
+  <dd>
+    <% if @user.created_by_invite? %>
+    Created by invite from <%= @user.invited_by.name %>&mdash;
+    <%= @user.invitation_accepted? ? 'Invite accepted' : 'Invite not yet accepted' %>
+    <% end %>
+  </dd>
+
   <dt>Roles</dt>
   <dd>
     <ul>
       <% @user.roles.where(resource: nil).each do |role| %>
-      <li><%= role.name %></li>
+      <li><%= role.name %>
+        (<%= link_to 'x', users_profile_role_path(@user, role), method: :delete, data: {confirm: 'Are you sure?'}  %>)
+      </li>
       <% end %>
     </ul>
 
