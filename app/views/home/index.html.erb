@@ -17,14 +17,17 @@
             <ul class="list-group">
               <li class="list-group-item disabled bg-secondary text-white">Website under construction</li>
               <% if current_user.has_role?(:admin_portal) %>
-              <%= link_to 'Admin Panel', admin_root_path, class: 'list-group-item list-group-item-action' %>
+              <%= link_to 'Admin Panel', admin_root_path, class: 'list-group-item list-group-item-action list-group-item-secondary' %>
               <% end %>
               <%= link_to 'Secure Documents', documents_path, class: 'list-group-item list-group-item-action' if current_user.has_role?(:document_reader) %>
               <%= link_to 'Encrypted Memos', encrypted_memos_path, class: 'list-group-item list-group-item-action' if current_user.has_role?(:encrypted_memo_viewer) %>
-              <%= link_to 'Invite a User', new_user_invitation_path, class: 'list-group-item list-group-item-action' if current_user.has_role?(:user_inviter) %>
-              <%= link_to 'Verification Codes', users_verification_codes_path, class: 'list-group-item list-group-item-action' if current_user.has_role?(:verifier) %>
+              <%= link_to 'Invite a User', new_user_invitation_path, class: 'list-group-item list-group-item-action list-group-item-warning' if current_user.has_role?(:user_inviter) %>
+              <%= link_to 'User Directory', users_directory_path, class: 'list-group-item list-group-item-action list-group-item-warning' if current_user.has_role?(:directory_viewer) %>
+              <%= link_to 'Verification Codes', users_verification_codes_path, class: 'list-group-item list-group-item-action list-group-item-warning' if current_user.has_role?(:verifier) %>
 
             </ul>
+            <small class="text-muted">Items highlighted in yellow are special functions available to you as an
+              authorized user.</small>
           </div>
         </div>
       </div>

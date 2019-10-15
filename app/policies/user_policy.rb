@@ -2,11 +2,11 @@
 
 class UserPolicy < ApplicationPolicy
   def index?
-    user.has_role?(:user_administrator)
+    user.has_role?(:user_administrator) || user.has_role?(:directory_viewer)
   end
 
   def show?
-    user.has_role?(:user_administrator)
+    user.has_role?(:user_administrator) || user.has_role?(:directory_viewer)
   end
 
   def update?

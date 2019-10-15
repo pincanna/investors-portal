@@ -9,8 +9,11 @@
   <dt>Verification Status</dt>
   <dd>
     <% if @user.need_paranoid_verification? %>
-    <div class="badge badge-danger">Unverified</div>&nbsp;
+    <div class="badge badge-danger">
+      Unverified</div>&nbsp;
+    <% if current_user.has_role?(:verifier) %>
     <em>User needs to enter their verification code:</em> <%= @user.paranoid_verification_code %>
+    <% end %>
     <% else %>
     <div class="badge badge-success">Verified</div>
     <% end %>
