@@ -1,0 +1,21 @@
+<h1>User Listing</h1>
+<table class="table table-sm table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Last Name</th>
+      <th>First Name</th>
+      <th>Email</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @directory.each do |user| %>
+    <tr>
+      <td><%= user.last_name %></td>
+      <td><%= user.first_name %></td>
+      <td><%= user.email %></td>
+      <td><%= link_to 'View Profile', users_profile_path(user), class: 'btn btn-sm btn-outline-primary' %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

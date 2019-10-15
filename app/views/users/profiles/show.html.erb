@@ -1,0 +1,28 @@
+<h1>User Profile</h1>
+<dl>
+  <dt>Full Name</dt>
+  <dd><%= @user.name %></dd>
+
+  <dt>Email Address</dt>
+  <dd><%= @user.email %></dd>
+
+  <dt>Verification Status</dt>
+  <dd>
+    <% if @user.need_paranoid_verification? %>
+    <div class="badge badge-danger">Unverified</div>&nbsp;
+    <em>User needs to enter their verification code:</em> <%= @user.paranoid_verification_code %>
+    <% else %>
+    <div class="badge badge-success">Verified</div>
+    <% end %>
+  </dd>
+
+  <dt>Roles</dt>
+  <dd>
+    <ul>
+      <% @user.roles.where(resource: nil).each do |role| %>
+      <li><%= role.name %></li>
+      <% end %>
+    </ul>
+
+  </dd>
+</dl>
