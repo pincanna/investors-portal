@@ -32,7 +32,9 @@
     <ul>
       <% @user.roles.where(resource: nil).each do |role| %>
       <li><%= role.name %>
+        <% if current_user.has_role?(:role_manager) %>
         (<%= link_to 'x', users_profile_role_path(@user, role), method: :delete, data: {confirm: 'Are you sure?'}  %>)
+        <% end %>
       </li>
       <% end %>
     </ul>
