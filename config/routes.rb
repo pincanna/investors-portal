@@ -23,9 +23,11 @@ Rails.application.routes.draw do
   namespace :users do
     resources :verification_codes, only: [:index]
     resources :login_activities
-    resources :roles, only: [:index, :create, :destroy]
+
     get 'directory', to: 'directory#index'
-    resources :profiles, only: [:show]
+    resources :profiles, only: [:show] do
+      resources :roles, only: [:create, :destroy]
+    end
   end
   namespace :messages do
     get 'inbox', to: 'inbox#index'
