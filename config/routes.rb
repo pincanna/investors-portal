@@ -3,6 +3,7 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  resources :encrypted_memos
   namespace :admin do
     resources :documents
     resources :users

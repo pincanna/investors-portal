@@ -1,0 +1,21 @@
+<div class="page-header">
+  <%= link_to encrypted_memos_path, class: 'btn btn-default' do %>
+    All Encrypted_memos
+  <% end %>
+  <%= link_to edit_encrypted_memo_path(@encrypted_memo), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show encrypted_memo</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Uid:</dt>
+  <dd><%= @encrypted_memo.uid %></dd>
+
+  <dt>Title:</dt>
+  <dd><%= @encrypted_memo.title %></dd>
+
+  <dt>Body:</dt>
+  <dd><%= @encrypted_memo.body %></dd>
+
+</dl>

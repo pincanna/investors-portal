@@ -1,0 +1,47 @@
+
+
+
+<div class="row">
+  <div class="col-sm-6">
+    <h1>Encrypted_memos</h1>
+  </div>
+
+  <div class="col-sm-6 text-right">
+  <%= link_to new_encrypted_memo_path, class: 'btn btn-primary' do %>
+    Add New Encrypted memo
+  <% end %>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+    
+
+            <th>Uid</th>
+            <th>Title</th>
+            <th>Body</th>
+            
+          <th></th>
+        
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @encrypted_memos.each do |encrypted_memo| %>
+        <%= content_tag :tr, id: dom_id(encrypted_memo), class: dom_class(encrypted_memo) do %>
+          
+
+                      <td><%= encrypted_memo.uid %></td>
+                      <td><%= encrypted_memo.title %></td>
+                      <td><%= encrypted_memo.body %></td>
+          
+          
+            <td><%= link_to 'Show', encrypted_memo %></td>
+          
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

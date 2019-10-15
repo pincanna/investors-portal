@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_11_145103) do
+ActiveRecord::Schema.define(version: 2019_10_15_050013) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,16 @@ ActiveRecord::Schema.define(version: 2019_10_11_145103) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["attachable_type", "attachable_id"], name: "index_documents_on_attachable_type_and_attachable_id"
     t.index ["token"], name: "index_documents_on_token", unique: true
+  end
+
+  create_table "encrypted_memos", force: :cascade do |t|
+    t.string "uid"
+    t.string "title"
+    t.text "encrypted_body"
+    t.string "encrypted_body_iv"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["uid"], name: "index_encrypted_memos_on_uid", unique: true
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
