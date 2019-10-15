@@ -1,44 +1,39 @@
 <%= form_with(model: encrypted_memo, local: true) do |form| %>
-  <% if encrypted_memo.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(encrypted_memo.errors.count, "error") %> prohibited this encrypted_memo from being saved:</h2>
+<% if encrypted_memo.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(encrypted_memo.errors.count, "error") %> prohibited this encrypted_memo from being saved:</h2>
 
-      <ul>
-      <% encrypted_memo.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+  <ul>
+    <% encrypted_memo.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="form-group">
+  <%= form.label :title %>
+  <%= form.text_field :title, class: 'form-control' %>
+</div>
+
+<div class="form-group">
+  <%= form.label :body %>
+  <%= form.text_area :body, class: 'form-control' %>
+</div>
+
+<div class="form-group">
+  <% if encrypted_memo.persisted? %>
+  <div class="float-right">
+    <%= link_to 'Destroy', encrypted_memo, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+  </div>
   <% end %>
 
-  <div class="form-group">
-    <%= form.label :uid %>
-    <%= form.text_field :uid, class: 'form-control' %>
-  </div>
+  <%= form.submit class: 'btn btn-primary' %>
 
-  <div class="form-group">
-    <%= form.label :title %>
-    <%= form.text_field :title, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :body %>
-    <%= form.text_area :body, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <% if encrypted_memo.persisted? %>
-      <div class="float-right">
-        <%= link_to 'Destroy', encrypted_memo, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
-      </div>
-    <% end %>
-
-    <%= form.submit class: 'btn btn-primary' %>
-
-    <% if encrypted_memo.persisted? %>
-      <%= link_to "Cancel", encrypted_memo, class: "btn btn-link" %>
-    <% else %>
-      <%= link_to "Cancel", encrypted_memos_path, class: "btn btn-link" %>
-    <% end %>
-  </div>
+  <% if encrypted_memo.persisted? %>
+  <%= link_to "Cancel", encrypted_memo, class: "btn btn-link" %>
+  <% else %>
+  <%= link_to "Cancel", encrypted_memos_path, class: "btn btn-link" %>
+  <% end %>
+</div>
 <% end %>

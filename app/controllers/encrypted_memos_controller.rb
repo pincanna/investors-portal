@@ -1,30 +1,35 @@
+# frozen_string_literal: true
+
 class EncryptedMemosController < ApplicationController
-  before_action :set_encrypted_memo, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :set_encrypted_memo, only: %i[show edit update destroy]
+  rescue_from Pundit::NotAuthorizedError, with: :not_authorized
 
   # GET /encrypted_memos
   # GET /encrypted_memos.json
   def index
     @encrypted_memos = EncryptedMemo.all
+    authorize @encrypted_memos
   end
 
   # GET /encrypted_memos/1
   # GET /encrypted_memos/1.json
-  def show
-  end
+  def show; end
 
   # GET /encrypted_memos/new
   def new
     @encrypted_memo = EncryptedMemo.new
+    authorize @encrypted_memo
   end
 
   # GET /encrypted_memos/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /encrypted_memos
   # POST /encrypted_memos.json
   def create
     @encrypted_memo = EncryptedMemo.new(encrypted_memo_params)
+    authorize @encrypted_memo
 
     respond_to do |format|
       if @encrypted_memo.save
@@ -62,13 +67,19 @@ class EncryptedMemosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_encrypted_memo
-      @encrypted_memo = EncryptedMemo.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def encrypted_memo_params
-      params.require(:encrypted_memo).permit(:uid, :title, :body)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_encrypted_memo
+    @encrypted_memo = EncryptedMemo.find(params[:id])
+    authorize @encrypted_memo
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def encrypted_memo_params
+    params.require(:encrypted_memo).permit(:title, :body)
+  end
+
+  def not_authorized
+    redirect_to root_url, notice: "You are not authorized. <strong>Action</strong>: #{action_name} <strong>Object</strong>: EncryptedMemo"
+  end
 end
