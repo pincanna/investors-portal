@@ -18,6 +18,10 @@ module InvestorPortal
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 
+    config.exception_handler = {
+      email: Rails.application.credentials.dig(:exception_handler, :notification_email)
+    }
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
