@@ -98,3 +98,5 @@ gem "active_link_to", "~> 1.0"
 gem "shortener", "~> 0.8.0"
 
 gem "attr_encrypted", "~> 3.1"
+
+gem "doorkeeper", "~> 5.2"
