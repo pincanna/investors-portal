@@ -102,3 +102,5 @@ gem "attr_encrypted", "~> 3.1"
 gem "doorkeeper", "~> 5.2"
 
 gem "doorkeeper-openid_connect", "~> 1.6"
+
+gem "exception_handler", "~> 0.8.0"
