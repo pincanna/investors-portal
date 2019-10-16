@@ -21,7 +21,7 @@ class DocumentPolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
-      if user.has_role?(:document_read_all)
+      if user.has_role?(:document_read_all) || user.id == record.user.id
         scope.all
       elsif user.has_role?(:document_reader)
         scope.with_role(:viewer, user)
