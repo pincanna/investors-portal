@@ -3,6 +3,7 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  use_doorkeeper_openid_connect
   use_doorkeeper
   resources :encrypted_memos
   namespace :admin do
