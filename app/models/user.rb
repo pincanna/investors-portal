@@ -11,6 +11,15 @@ class User < ApplicationRecord
   has_many :login_activities, as: :user
   has_many :services
   has_many :encrypted_memos
+  has_many :access_grants,
+           class_name: 'Doorkeeper::AccessGrant',
+           foreign_key: :resource_owner_id,
+           dependent: :delete_all # or :destroy if you need callbacks
+
+  has_many :access_tokens,
+           class_name: 'Doorkeeper::AccessToken',
+           foreign_key: :resource_owner_id,
+           dependent: :delete_all # or :destroy if you need callbacks
 
   def self.invite_key_fields
     [:email]
