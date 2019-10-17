@@ -30,3 +30,4 @@ dump.rdb
 yarn-debug.log*
 .yarn-integrity
 dump.rdb
+brakeman_results.html
