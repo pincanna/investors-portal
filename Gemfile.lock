@@ -408,7 +408,7 @@ GEM
       rubyzip (>= 1.2.2)
     shortener (0.8.0)
       voight_kampff (~> 1.1.2)
-    sidekiq (6.0.2)
+    sidekiq (6.0.3)
       connection_pool (>= 2.2.2)
       rack (>= 2.0.0)
       rack-protection (>= 2.0.0)
