@@ -80,7 +80,7 @@ gem "azure-storage-blob", "~> 1.1"
 gem "aws-sdk-s3", require: false
 gem "cloudinary", "~> 1.12"
 
-gem "administrate-field-active_storage", "~> 0.2.0"
+gem "administrate-field-active_storage", "~> 0.3.6"
 
 gem "pundit", "~> 2.1"
 
