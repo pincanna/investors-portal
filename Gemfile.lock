@@ -137,7 +137,7 @@ GEM
       azure-core (~> 0.1.13)
       nokogiri (~> 1.6, >= 1.6.8)
     bcrypt (3.1.13)
-    bindata (2.4.4)
+    bindata (2.4.10)
     bindex (0.8.1)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
